@@ -1,1 +1,1 @@
-# fiz este algoritmo de sorteio aleatorio para praticidade.
+https://nielzon66.github.io/Sorteio/
