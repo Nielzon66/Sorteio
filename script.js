@@ -3,12 +3,18 @@ function sortear() {
     const nomes = input.split(',').map(nome => nome.trim()).filter(nome => nome !== '');
 
     if (nomes.length === 0) {
-        alert('Por favor, insira pelo menos um nome.');
+        alert('Matehus, Kayke, Moises, Erick');
         return;
     }
 
-    const indiceSorteado = Math.floor(Math.random() * nomes.length);
-    const nomeSorteado = nomes[indiceSorteado];
+    // Embaralhar os nomes usando o algoritmo de Fisher-Yates
+    for (let i = nomes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [nomes[i], nomes[j]] = [nomes[j], nomes[i]];
+    }
 
-    document.getElementById('resultado').innerText = `🎉 Nome sorteado: ${nomeSorteado}`;
+    // Gerar resultado formatado
+    const resultadoFormatado = nomes.map((nome, index) => `${index + 1}. ${nome}`).join('<br>');
+
+    document.getElementById('resultado').innerHTML = `<p>🎯 Ordem sorteada:</p> ${resultadoFormatado}`;
 }
