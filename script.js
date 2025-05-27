@@ -7,15 +7,17 @@ function sortear() {
         return;
     }
 
-    // Embaralhar os nomes
+    // Embaralhar os nomes (algoritmo Fisher-Yates)
     for (let i = nomes.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [nomes[i], nomes[j]] = [nomes[j], nomes[i]];
     }
 
-    // Gerar resultado formatado como lista
+    // Mostrar a ordem sorteada
     const resultadoDiv = document.getElementById('resultado');
     resultadoDiv.innerHTML = '<p>🎯 Ordem sorteada:</p>';
 
-    const ul = document.createElement('ul');
-    ul
+    nomes.forEach((nome, index) => {
+        resultadoDiv.innerHTML += `${index + 1}. ${nome} <br>`;
+    });
+}
